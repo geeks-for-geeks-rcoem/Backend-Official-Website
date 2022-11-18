@@ -10,7 +10,15 @@ router.post("/",function(req,res,next){
 
   const newuser= new User({
     name: content.name,
-    branch: content.branch
+    year: content.year,
+    branch: content.branch,
+    emailid: content.emailid,
+    phone: content.phone,
+    teamName: content.teamName,
+    teamMember1: content.teamMember1,
+    teamMember2: content.teamMember2,
+    teamMember3: content.teamMember3,
+    paymentStatus: content.paymentStatus
   });
 
   newuser.save()
