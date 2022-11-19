@@ -13,12 +13,13 @@ app.use(bodyParser.json());
 
 ///// USER Models
 const UserModel= require("./models/User");
-
+const feedbackModel = require("./models/feedback");
 
 ///// Declaring Routes
 addUser= require("./routes/addUser");
 getUsers= require("./routes/getUsers");
-
+addFeedback = require("./routes/addFeedback");
+getFeedback = require("./routes/getFeedback");
 
 
 //PORT ENVIRONMENT VARIABLE  MONGODB Connect
@@ -46,8 +47,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/add-user', addUser);
 app.use('/get-users', getUsers);
-
-
+app.use('/add-feedback', addFeedback);
+app.use('/get-feedback',getFeedback);
 
 
 ////// Starter and Error Listen Statesments
@@ -57,7 +58,7 @@ app.listen(port, () => {
   console.log(`Listening on port ${port}..`);
 });
 
-// catch 404 and forward to error handler
+//catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
