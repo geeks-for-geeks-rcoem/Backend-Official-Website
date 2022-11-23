@@ -1,10 +1,14 @@
-const mongoose= require('mongoose');
+const mongoose = require('mongoose');
 require('mongoose-type-email');
 const Schema = mongoose.Schema;
 
 
-const UserSchema = new Schema ({
-    name:{
+const UserSchema = new Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    college: {
         type: String,
         required: true
     },
@@ -24,10 +28,10 @@ const UserSchema = new Schema ({
         type: String,
         validate: {
             validator: function (v) {
-              return /^[0-9]{10}/.test(v);
+                return /^[0-9]{10}/.test(v);
             },
             message: '{VALUE} is not a valid 10 digit number!'
-          },      
+        },
         required: true
     },
     teamName: {
@@ -35,72 +39,72 @@ const UserSchema = new Schema ({
         required: true
     },
     teamMember1: {
-        name:{
-            type:String,
+        name: {
+            type: String,
             required: true
         },
-        emailid:{
+        emailid: {
             type: mongoose.SchemaTypes.Email,
             required: true
         },
-        phone:{
+        phone: {
             type: String,
             validate: {
                 validator: function (v) {
                     return /^[0-9]{10}/.test(v);
+                },
+                message: '{VALUE} is not a valid 10 digit number!'
             },
-            message: '{VALUE} is not a valid 10 digit number!'
-          },      
-        required: true
+            required: true
         }
     },
     teamMember2: {
-        name:{
-            type:String,
+        name: {
+            type: String,
             required: true
         },
-        emailid:{
+        emailid: {
             type: mongoose.SchemaTypes.Email,
             required: true
         },
-        phone:{
+        phone: {
             type: String,
             validate: {
                 validator: function (v) {
                     return /^[0-9]{10}/.test(v);
+                },
+                message: '{VALUE} is not a valid 10 digit number!'
             },
-            message: '{VALUE} is not a valid 10 digit number!'
-          },      
-        required: true
+            required: true
         }
     },
     teamMember3: {
-        name:{
-            type:String,
+        name: {
+            type: String,
             required: true
         },
-        emailid:{
+        emailid: {
             type: mongoose.SchemaTypes.Email,
             required: true
         },
-        phone:{
+        phone: {
             type: String,
             validate: {
                 validator: function (v) {
                     return /^[0-9]{10}/.test(v);
+                },
+                message: '{VALUE} is not a valid 10 digit number!'
             },
-            message: '{VALUE} is not a valid 10 digit number!'
-          },      
-        required: true
+            required: true
         }
     },
-    paymentStatus:{
-        type:String,
-        enum: ['Paid','Unpaid'],
-        required:true,
-        default:'Unpaid'
+    paymentStatus: {
+        type: String,
+        enum: ['Paid', 'Unpaid'],
+        required: true,
+        default: 'Unpaid'
     }
-}, { timestamps : true });
+}, { timestamps: true });
 
-const User=mongoose.model('Polaris2022', UserSchema);
+const User = mongoose.model('Polaris2022', UserSchema);
 module.exports = User;

@@ -10,6 +10,7 @@ router.post("/",function(req,res,next){
 
   const newuser= new User({
     name: content.name,
+    college:content.college,
     year: content.year,
     branch: content.branch,
     emailid: content.emailid,
