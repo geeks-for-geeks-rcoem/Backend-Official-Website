@@ -14,12 +14,15 @@ app.use(bodyParser.json());
 ///// USER Models
 const UserModel= require("./models/User");
 const feedbackModel = require("./models/feedback");
+const Event1Model = require("./models/event1");
 
 ///// Declaring Routes
 addUser= require("./routes/addUser");
 getUsers= require("./routes/getUsers");
 addFeedback = require("./routes/addFeedback");
 getFeedback = require("./routes/getFeedback");
+addEvent11JanRegistration = require("./routes/addEvent11JanRegistrations");
+getEvent11JanRegistration = require("./routes/getEvent11JanRegistrations");
 
 
 //PORT ENVIRONMENT VARIABLE  MONGODB Connect
@@ -49,6 +52,8 @@ app.use('/add-user', addUser);
 app.use('/get-users', getUsers);
 app.use('/add-feedback', addFeedback);
 app.use('/get-feedback',getFeedback);
+app.use('/add-event1Registration',addEvent11JanRegistration);
+app.use('/get-event1Registration',getEvent11JanRegistration);
 
 
 ////// Starter and Error Listen Statesments
