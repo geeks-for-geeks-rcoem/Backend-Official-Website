@@ -46,6 +46,6 @@ const feedbackSchema = new Schema ({
     }
 }, { timestamps : true });
 
-const feedback = mongoose.model('Polaris22Feedback', feedbackSchema);
-module.exports = feedback;
 
+const memefeedback = mongoose.model('MemeFeedback', feedbackSchema);
+module.exports = memefeedback;

@@ -15,6 +15,7 @@ app.use(bodyParser.json());
 const UserModel= require("./models/User");
 const feedbackModel = require("./models/feedback");
 const Event1Model = require("./models/event1");
+const MemefestDB = require("./models/Memefest");
 
 ///// Declaring Routes
 addUser= require("./routes/addUser");
@@ -23,11 +24,15 @@ addFeedback = require("./routes/addFeedback");
 getFeedback = require("./routes/getFeedback");
 addEvent11JanRegistration = require("./routes/addEvent11JanRegistrations");
 getEvent11JanRegistration = require("./routes/getEvent11JanRegistrations");
+const addMemefestRegistrationRouter = require("./routes/addMemefestRegistrations");
+const getMemefestRegistrationRouter = require("./routes/getMemefestRegistrations");
+
 
 
 //PORT ENVIRONMENT VARIABLE  MONGODB Connect
 const port = process.env.PORT || 8000;
 const CONNECTION_URL= process.env.MONGODB_URL || "mongodb+srv://GFGrcoem:gfgrcoem123@cluster0.5z3xld7.mongodb.net/GFGEvents?retryWrites=true&w=majority";
+
 mongoose.connect(CONNECTION_URL).then((result)=> {
   console.log("connected");
 })
@@ -54,6 +59,8 @@ app.use('/add-feedback', addFeedback);
 app.use('/get-feedback',getFeedback);
 app.use('/add-event1Registration',addEvent11JanRegistration);
 app.use('/get-event1Registration',getEvent11JanRegistration);
+app.use("/add-MemefestRegistration", addMemefestRegistrationRouter);
+app.use("/get-MemefestRegistration", getMemefestRegistrationRouter);
 
 
 ////// Starter and Error Listen Statesments
