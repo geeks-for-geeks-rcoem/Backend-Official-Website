@@ -26,6 +26,7 @@ addEvent11JanRegistration = require("./routes/addEvent11JanRegistrations");
 getEvent11JanRegistration = require("./routes/getEvent11JanRegistrations");
 const addMemefestRegistrationRouter = require("./routes/addMemefestRegistrations");
 const getMemefestRegistrationRouter = require("./routes/getMemefestRegistrations");
+const getMemefestfeedback = require("./routes/getmemefestfeedback")
 
 
 
@@ -61,6 +62,7 @@ app.use('/add-event1Registration',addEvent11JanRegistration);
 app.use('/get-event1Registration',getEvent11JanRegistration);
 app.use("/add-MemefestRegistration", addMemefestRegistrationRouter);
 app.use("/get-MemefestRegistration", getMemefestRegistrationRouter);
+app.use("/get-Memefestfeedback", getMemefestfeedback)
 
 
 ////// Starter and Error Listen Statesments
