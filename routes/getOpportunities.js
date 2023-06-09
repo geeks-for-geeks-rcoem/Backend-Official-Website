@@ -1,14 +1,14 @@
 const express = require("express");
 var router = express.Router();
-const MemefestDB = require("./../models/Memefest");
+const OpportunityDB = require("./../models/opportunity");
 
 router.get("/", async (req, res) => {
   try {
-    const result = await MemefestDB.find();
+    const result = await OpportunityDB.find();
     const registrationCount = result.length;
     res
       .status(200)
-      .send(result);
+      .send(`Registration Count : ${registrationCount}<br><br>${result}`);
   } catch (error) {
     console.log(error);
     res.status(400);

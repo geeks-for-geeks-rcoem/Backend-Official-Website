@@ -16,6 +16,7 @@ const UserModel = require("./models/User");
 const feedbackModel = require("./models/feedback");
 const Event1Model = require("./models/event1");
 const MemefestDB = require("./models/Memefest");
+const OpportunityDB = require("./models/opportunity");
 
 ///// Declaring Routes
 addUser = require("./routes/addUser");
@@ -26,7 +27,9 @@ addEvent11JanRegistration = require("./routes/addEvent11JanRegistrations");
 getEvent11JanRegistration = require("./routes/getEvent11JanRegistrations");
 const addMemefestRegistrationRouter = require("./routes/addMemefestRegistrations");
 const getMemefestRegistrationRouter = require("./routes/getMemefestRegistrations");
-const getMemefestfeedback = require("./routes/getmemefestfeedback")
+const getMemefestfeedback = require("./routes/getmemefestfeedback");
+const addOpportunityRegistrationRouter = require("./routes/addOpportunity");
+const getOpportunityRegistrationRouter = require("./routes/getOpportunities");
 
 
 
@@ -62,7 +65,9 @@ app.use('/add-event1Registration', addEvent11JanRegistration);
 app.use('/get-event1Registration', getEvent11JanRegistration);
 app.use("/add-MemefestRegistration", addMemefestRegistrationRouter);
 app.use("/get-MemefestRegistration", getMemefestRegistrationRouter);
-app.use("/get-Memefestfeedback", getMemefestfeedback)
+app.use("/get-Memefestfeedback", getMemefestfeedback);
+app.use("/add-opportunityRegistration",addOpportunityRegistrationRouter);
+app.use("/get-opportunityRegistration",getOpportunityRegistrationRouter);
 
 
 ////// Starter and Error Listen Statesments
