@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 const bodyParser = require("body-parser");
 var mongoose = require('mongoose');
-var cors=require("cors");
+var cors = require("cors");
 var indexRouter = require('./routes/index');
 var app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -12,14 +12,14 @@ app.use(bodyParser.json());
 
 
 ///// USER Models
-const UserModel= require("./models/User");
+const UserModel = require("./models/User");
 const feedbackModel = require("./models/feedback");
 const Event1Model = require("./models/event1");
 const MemefestDB = require("./models/Memefest");
 
 ///// Declaring Routes
-addUser= require("./routes/addUser");
-getUsers= require("./routes/getUsers");
+addUser = require("./routes/addUser");
+getUsers = require("./routes/getUsers");
 addFeedback = require("./routes/addFeedback");
 getFeedback = require("./routes/getFeedback");
 addEvent11JanRegistration = require("./routes/addEvent11JanRegistrations");
@@ -32,19 +32,19 @@ const getMemefestfeedback = require("./routes/getmemefestfeedback")
 
 //PORT ENVIRONMENT VARIABLE  MONGODB Connect
 const port = process.env.PORT || 8000;
-const CONNECTION_URL= process.env.MONGODB_URL || "mongodb+srv://GFGrcoem:gfgrcoem123@cluster0.5z3xld7.mongodb.net/GFGEvents?retryWrites=true&w=majority";
+const CONNECTION_URL = process.env.MONGODB_URL || "mongodb+srv://GFGrcoem:gfgrcoem123@cluster0.5z3xld7.mongodb.net/GFGEvents?retryWrites=true&w=majority";
 
-mongoose.connect(CONNECTION_URL).then((result)=> {
+mongoose.connect(CONNECTION_URL).then((result) => {
   console.log("connected");
 })
-.catch((err)=> console.log(err));
+  .catch((err) => console.log(err));
 
 
 
 
 /////  view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+/* app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade'); */
 app.use(express.json());
 app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));
@@ -57,9 +57,9 @@ app.use('/', indexRouter);
 app.use('/add-user', addUser);
 app.use('/get-users', getUsers);
 app.use('/add-feedback', addFeedback);
-app.use('/get-feedback',getFeedback);
-app.use('/add-event1Registration',addEvent11JanRegistration);
-app.use('/get-event1Registration',getEvent11JanRegistration);
+app.use('/get-feedback', getFeedback);
+app.use('/add-event1Registration', addEvent11JanRegistration);
+app.use('/get-event1Registration', getEvent11JanRegistration);
 app.use("/add-MemefestRegistration", addMemefestRegistrationRouter);
 app.use("/get-MemefestRegistration", getMemefestRegistrationRouter);
 app.use("/get-Memefestfeedback", getMemefestfeedback)
@@ -73,12 +73,12 @@ app.listen(port, () => {
 });
 
 //catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
