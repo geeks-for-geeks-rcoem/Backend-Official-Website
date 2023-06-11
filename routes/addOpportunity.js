@@ -33,7 +33,7 @@ router.post("/verify",async(req,res)=>{
     if(record === null){
       res.status(200).send("Not Registered yet!!");
     } else{
-        res.status(200).send("Successfully Registered!");
+        res.status(401).send("Successfully Registered!");
     }
 })
 
