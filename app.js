@@ -30,7 +30,7 @@ const getMemefestRegistrationRouter = require("./routes/getMemefestRegistrations
 const getMemefestfeedback = require("./routes/getmemefestfeedback");
 const addOpportunityRegistrationRouter = require("./routes/addOpportunity");
 const getOpportunityRegistrationRouter = require("./routes/getOpportunities");
-
+const getOpportunityfeedback = require('./routes/getopportunityfeedback');
 
 
 //PORT ENVIRONMENT VARIABLE  MONGODB Connect
@@ -68,6 +68,7 @@ app.use("/get-MemefestRegistration", getMemefestRegistrationRouter);
 app.use("/get-Memefestfeedback", getMemefestfeedback);
 app.use("/add-opportunityRegistration",addOpportunityRegistrationRouter);
 app.use("/get-opportunityRegistration",getOpportunityRegistrationRouter);
+app.use("/get-opportunityfeedback",getOpportunityfeedback);
 
 
 ////// Starter and Error Listen Statesments

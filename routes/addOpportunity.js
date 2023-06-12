@@ -30,8 +30,9 @@ router.post("/verify",async(req,res)=>{
     //console.log(email);
     const record = await OpportunityDB.findOne({emailid:email});
     //console.log(record);
+   // console.log(email);
     if(record === null){
-      res.status(200).send("Not Registered yet!!");
+      res.status(404).send("Not Registered yet!!");
     } else{
         res.status(401).send("Successfully Registered!");
     }
@@ -39,7 +40,7 @@ router.post("/verify",async(req,res)=>{
 
 router.post("/", async (req, res) => {
   const content = req.body;
-  console.log(content);
+  //console.log(content);
   try {
     const registrationForm = new OpportunityDB({
       name: content.name,
