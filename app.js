@@ -17,6 +17,7 @@ const feedbackModel = require("./models/feedback");
 const Event1Model = require("./models/event1");
 const MemefestDB = require("./models/Memefest");
 const OpportunityDB = require("./models/opportunity");
+const FlutterDB = require("./models/Flutter");
 
 ///// Declaring Routes
 addUser = require("./routes/addUser");
@@ -31,6 +32,7 @@ const getMemefestfeedback = require("./routes/getmemefestfeedback");
 const addOpportunityRegistrationRouter = require("./routes/addOpportunity");
 const getOpportunityRegistrationRouter = require("./routes/getOpportunities");
 const getOpportunityfeedback = require('./routes/getopportunityfeedback');
+const FlutterRouter = require("./routes/FlutterRoutes");
 
 
 //PORT ENVIRONMENT VARIABLE  MONGODB Connect
@@ -69,6 +71,7 @@ app.use("/get-Memefestfeedback", getMemefestfeedback);
 app.use("/add-opportunityRegistration",addOpportunityRegistrationRouter);
 app.use("/get-opportunityRegistration",getOpportunityRegistrationRouter);
 app.use("/get-opportunityfeedback",getOpportunityfeedback);
+app.use('/flutter-event',FlutterRouter);
 
 
 ////// Starter and Error Listen Statesments
