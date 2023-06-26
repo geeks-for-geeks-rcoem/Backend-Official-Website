@@ -35,7 +35,7 @@ route.post('/verify', (async (req, res) => {
     if (record === null) {
         res.status(404).send("Not Registered yet!!");
     } else {
-        res.status(401).send("Successfully Registered!");
+        res.status(201).send("Successfully Registered!");
     }
 }));
 
