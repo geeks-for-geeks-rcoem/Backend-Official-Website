@@ -10,6 +10,9 @@ var app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+// Configuring .env files
+require('dotenv').config()
+
 
 ///// USER Models
 const UserModel = require("./models/User");
@@ -18,14 +21,15 @@ const Event1Model = require("./models/event1");
 const MemefestDB = require("./models/Memefest");
 const OpportunityDB = require("./models/opportunity");
 const FlutterDB = require("./models/Flutter");
+const Orientation = require("./models/Orientation");
 
 ///// Declaring Routes
-addUser = require("./routes/addUser");
-getUsers = require("./routes/getUsers");
-addFeedback = require("./routes/addFeedback");
-getFeedback = require("./routes/getFeedback");
-addEvent11JanRegistration = require("./routes/addEvent11JanRegistrations");
-getEvent11JanRegistration = require("./routes/getEvent11JanRegistrations");
+const addUser = require("./routes/addUser");
+const getUsers = require("./routes/getUsers");
+const addFeedback = require("./routes/addFeedback");
+const getFeedback = require("./routes/getFeedback");
+const addEvent11JanRegistration = require("./routes/addEvent11JanRegistrations");
+const getEvent11JanRegistration = require("./routes/getEvent11JanRegistrations");
 const addMemefestRegistrationRouter = require("./routes/addMemefestRegistrations");
 const getMemefestRegistrationRouter = require("./routes/getMemefestRegistrations");
 const getMemefestfeedback = require("./routes/getmemefestfeedback");
@@ -33,11 +37,13 @@ const addOpportunityRegistrationRouter = require("./routes/addOpportunity");
 const getOpportunityRegistrationRouter = require("./routes/getOpportunities");
 const getOpportunityfeedback = require('./routes/getopportunityfeedback');
 const FlutterRouter = require("./routes/FlutterRoutes");
+const OpportunityRouter = require("./routes/OrientationRoutes");
+
 
 
 //PORT ENVIRONMENT VARIABLE  MONGODB Connect
-const port = process.env.PORT || 8000;
-const CONNECTION_URL = process.env.MONGODB_URL || "mongodb+srv://GFGrcoem:gfgrcoem123@cluster0.5z3xld7.mongodb.net/GFGEvents?retryWrites=true&w=majority";
+const port = process.env.PORT;
+const CONNECTION_URL = process.env.MONGODB_URL;
 
 mongoose.connect(CONNECTION_URL).then((result) => {
   console.log("connected");
@@ -63,15 +69,17 @@ app.use('/add-user', addUser);
 app.use('/get-users', getUsers);
 app.use('/add-feedback', addFeedback);
 app.use('/get-feedback', getFeedback);
-app.use('/add-event1Registration', addEvent11JanRegistration);
-app.use('/get-event1Registration', getEvent11JanRegistration);
-app.use("/add-MemefestRegistration", addMemefestRegistrationRouter);
-app.use("/get-MemefestRegistration", getMemefestRegistrationRouter);
-app.use("/get-Memefestfeedback", getMemefestfeedback);
-app.use("/add-opportunityRegistration",addOpportunityRegistrationRouter);
-app.use("/get-opportunityRegistration",getOpportunityRegistrationRouter);
-app.use("/get-opportunityfeedback",getOpportunityfeedback);
-app.use('/flutter-event',FlutterRouter);
+app.use("/orientation", OpportunityRouter);
+// app.use('/add-event1Registration', addEvent11JanRegistration);
+// app.use('/get-event1Registration', getEvent11JanRegistration);
+// app.use("/add-MemefestRegistration", addMemefestRegistrationRouter);
+// app.use("/get-MemefestRegistration", getMemefestRegistrationRouter);
+// app.use("/get-Memefestfeedback", getMemefestfeedback);
+// app.use("/add-opportunityRegistration",addOpportunityRegistrationRouter);
+// app.use("/get-opportunityRegistration",getOpportunityRegistrationRouter);
+// app.use("/get-opportunityfeedback",getOpportunityfeedback);
+// app.use('/flutter-event',FlutterRouter);
+
 
 
 ////// Starter and Error Listen Statesments
