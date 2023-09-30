@@ -35,4 +35,14 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.post('/verify', (async (req, res) => {
+  const email = req.body.emailid;
+  const record = await FreshmenFundamentalDB.findOne({ emailid: email });
+  if (record === null) {
+      res.status(404).send("Not Registered yet!!");
+  } else {
+      res.status(201).send("Successfully Registered!");
+  }
+}));
+
 module.exports = router;

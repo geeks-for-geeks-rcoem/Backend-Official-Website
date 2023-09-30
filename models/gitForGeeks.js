@@ -35,6 +35,10 @@ const GitForGeeksSchema = new Schema ({
         unique:true,
         required:true
     },
+    Github:{
+        type:String,
+        required:true
+    }
 },{timestamps:true});
 
 const gitEvent = mongoose.model('Git For Geeks Event',GitForGeeksSchema);

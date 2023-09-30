@@ -12,6 +12,7 @@ router.get("/", (req, res) => {
     <input name="emailid" type="text" placeholder="emailid"></input><br>
     <input name="year" type="text" placeholder="year"></input><br>
     <input name="phone" type="text" placeholder="phone"></input><br>
+    <input name="Github" type="text" ></input><br>
     <input type="submit"></input>
   </form>`);
 });
@@ -26,6 +27,7 @@ router.post("/", async (req, res) => {
       semester:content.semester,
       year: content.year,
       phone: content.phone,
+      Github:content.Github
     });
 
     const registration = await registrationForm.save();
@@ -34,5 +36,15 @@ router.post("/", async (req, res) => {
     res.status(400).send(`Error : ${error} or Email already exists`);
   }
 });
+
+router.post('/verify', (async (req, res) => {
+  const email = req.body.emailid;
+  const record = await GitForGeeksDB.findOne({ emailid: email });
+  if (record === null) {
+      res.status(404).send("Not Registered yet!!");
+  } else {
+      res.status(201).send("Successfully Registered!");
+  }
+}));
 
 module.exports = router;
