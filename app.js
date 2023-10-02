@@ -42,6 +42,8 @@ const addGitForGeeks = require("./routes/addGitForGeeks");
 const getGitForGeeks = require("./routes/getGitForGeeks");
 const addFreshmenFundamentals = require("./routes/addFreshmenFundamental");
 const getFreshmenFundamentals = require("./routes/getFreshmenFundamental");
+const leaderboardRouter = require("./routes/leaderboard");
+
 
 
 
@@ -78,6 +80,7 @@ app.use('/add-gitForGeeksRegistration',addGitForGeeks);
 app.use('/get-gitForGeeksRegistration',getGitForGeeks);
 app.use('/add-freshmenFundamentalsRegistration',addFreshmenFundamentals);
 app.use('/get-freshmenFundamentalsRegistration',getFreshmenFundamentals);
+app.use('/leaderboard', leaderboardRouter);
 // app.use('/add-event1Registration', addEvent11JanRegistration);
 // app.use('/get-event1Registration', getEvent11JanRegistration);
 // app.use("/add-MemefestRegistration", addMemefestRegistrationRouter);

@@ -35,7 +35,7 @@ const GitForGeeksSchema = new Schema ({
         unique:true,
         required:true
     },
-    Github:{
+    github:{
         type:String,
         required:true
     }
