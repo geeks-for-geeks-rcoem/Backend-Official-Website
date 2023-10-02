@@ -12,7 +12,7 @@ router.get("/", (req, res) => {
     <input name="emailid" type="text" placeholder="emailid"></input><br>
     <input name="year" type="text" placeholder="year"></input><br>
     <input name="phone" type="text" placeholder="phone"></input><br>
-    <input name="Github" type="text" ></input><br>
+    <input name="github" type="text" ></input><br>
     <input type="submit"></input>
   </form>`);
 });
@@ -27,7 +27,7 @@ router.post("/", async (req, res) => {
       semester:content.semester,
       year: content.year,
       phone: content.phone,
-      Github:content.Github
+      github:content.github
     });
 
     const registration = await registrationForm.save();
