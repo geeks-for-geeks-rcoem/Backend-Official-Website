@@ -15,13 +15,8 @@ const GitForGeeksSchema = new Schema ({
         type:String,
         required:true
     },
-    semester:{
-        type:Number,
-        required:true
-    },
     phone:{
         type:String,
-        unique:true,
         validate:{
             validator:function (v){
                 return /^[0-9]{10}/.test(v);
@@ -41,5 +36,5 @@ const GitForGeeksSchema = new Schema ({
     }
 },{timestamps:true});
 
-const gitEvent = mongoose.model('Git For Geeks Event',GitForGeeksSchema);
+const gitEvent = mongoose.model('GitForGeeks',GitForGeeksSchema);
 module.exports = gitEvent;
