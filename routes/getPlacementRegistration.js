@@ -1,10 +1,10 @@
 const express = require("express");
 var router = express.Router();
-const GitForGeeksDB = require("./../models/gitForGeeks");
+const PlacementDB = require("../models/Placement");
 
 router.get("/", async (req, res) => {
   try {
-    const result = await GitForGeeksDB.find();
+    const result = await PlacementDB.find();
     const registrationCount = result.length;
     res
       .status(200)

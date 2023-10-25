@@ -8,7 +8,7 @@ router.get("/", async (req, res) => {
     const registrationCount = result.length;
     res
       .status(200)
-      .send(`registrationCount : ${registrationCount} <br><br> result : ${result}`);
+      .json({registrationCount:registrationCount, result:result});
   } catch (error) {
     console.log(error);
     res.status(400);

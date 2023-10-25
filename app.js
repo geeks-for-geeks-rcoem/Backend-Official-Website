@@ -12,6 +12,7 @@ app.use(bodyParser.json());
 
 // Configuring .env files
 require('dotenv').config()
+mongoose.set('strictQuery', true);
 
 
 ///// USER Models
@@ -43,6 +44,8 @@ const getGitForGeeks = require("./routes/getGitForGeeks");
 const addFreshmenFundamentals = require("./routes/addFreshmenFundamental");
 const getFreshmenFundamentals = require("./routes/getFreshmenFundamental");
 const leaderboardRouter = require("./routes/leaderboard");
+const addPlacementRegistration = require("./routes/addPlacementRegistration")
+const getPlacementRegistration = require("./routes/getPlacementRegistration")
 
 
 
@@ -80,6 +83,8 @@ app.use('/add-gitForGeeksRegistration',addGitForGeeks);
 app.use('/get-gitForGeeksRegistration',getGitForGeeks);
 app.use('/add-freshmenFundamentalsRegistration',addFreshmenFundamentals);
 app.use('/get-freshmenFundamentalsRegistration',getFreshmenFundamentals);
+app.use('/add-placementRegistration',addPlacementRegistration);
+app.use('/get-placementRegistration',getPlacementRegistration);
 app.use('/leaderboard', leaderboardRouter);
 // app.use('/add-event1Registration', addEvent11JanRegistration);
 // app.use('/get-event1Registration', getEvent11JanRegistration);
