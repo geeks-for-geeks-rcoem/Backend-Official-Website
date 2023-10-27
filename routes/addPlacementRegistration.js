@@ -37,7 +37,7 @@ router.post("/", async (req, res) => {
 
 router.post('/verify', (async (req, res) => {
   const email = req.body.emailid;
-  const record = await FreshmenFundamentalDB.findOne({ emailid: email });
+  const record = await PlacementDB.findOne({ emailid: email });
   if (record === null) {
       res.status(404).send("Not Registered yet!!");
   } else {
