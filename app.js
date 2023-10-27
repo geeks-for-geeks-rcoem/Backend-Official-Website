@@ -5,7 +5,6 @@ var cookieParser = require('cookie-parser');
 const bodyParser = require("body-parser");
 var mongoose = require('mongoose');
 var cors = require("cors");
-var indexRouter = require('./routes/index');
 var app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -25,6 +24,7 @@ const FlutterDB = require("./models/Flutter");
 const Orientation = require("./models/Orientation");
 
 ///// Declaring Routes
+var indexRouter = require('./routes/index');
 const addUser = require("./routes/addUser");
 const getUsers = require("./routes/getUsers");
 const addFeedback = require("./routes/addFeedback");
@@ -117,8 +117,9 @@ app.use(function (err, req, res, next) {
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+  
+  //res.status(err.status || 500);
+  //res.render('error');
 });
 
 module.exports = app;
