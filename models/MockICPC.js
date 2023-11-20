@@ -22,10 +22,12 @@ const MockICPCSchema = new Schema({
     },
     emailid: {
         type: mongoose.SchemaTypes.Email,
-        required: true
+        required: true,
+        unique:true,
     },
     phone: {
         type: String,
+        unique:true,
         validate: {
             validator: function (v) {
                 return /^[0-9]{10}/.test(v);
@@ -36,7 +38,8 @@ const MockICPCSchema = new Schema({
     },
     teamName: {
         type: String,
-        required: true
+        required: true,
+        unique:true,
     },
     teamMember1: {
         name: {
@@ -45,10 +48,12 @@ const MockICPCSchema = new Schema({
         },
         emailid: {
             type: mongoose.SchemaTypes.Email,
-            required: true
+            required: true,
+            unique:true,
         },
         phone: {
             type: String,
+            unique:true,
             validate: {
                 validator: function (v) {
                     return /^[0-9]{10}/.test(v);
@@ -65,10 +70,12 @@ const MockICPCSchema = new Schema({
         },
         emailid: {
             type: mongoose.SchemaTypes.Email,
-            required: true
+            required: true,
+            unique:true,
         },
         phone: {
             type: String,
+            unique:true,
             validate: {
                 validator: function (v) {
                     return /^[0-9]{10}/.test(v);
