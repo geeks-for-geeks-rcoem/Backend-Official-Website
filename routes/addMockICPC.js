@@ -29,4 +29,15 @@ router.post("/",function(req,res,next){
 });
 
 
+router.post('/verify', (async (req, res) => {
+  const teamName = req.body.teamName;
+  const record = await MockICPC.findOne({ teamName: teamName });
+  if (record === null) {
+      res.status(404).send("Not Registered yet!!");
+  } else {
+      res.status(201).send("Successfully Registered!");
+  }
+}));
+
+
 module.exports=router;
