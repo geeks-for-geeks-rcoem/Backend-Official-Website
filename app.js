@@ -48,6 +48,8 @@ const addPlacementRegistration = require("./routes/addPlacementRegistration")
 const getPlacementRegistration = require("./routes/getPlacementRegistration")
 const getMockICPCRegistration = require("./routes/getMockICPC")
 const addMockICPCRegistration = require("./routes/addMockICPC")
+const getGameOfGeeksRegistration = require("./routes/getGameOfGeeks")
+const addGameOfGeeksRegistration = require("./routes/addGameOfGeeks")
 
 
 
@@ -91,6 +93,9 @@ app.use('/leaderboard', leaderboardRouter);
 
 app.use('/add-mockICPCRegistration', addMockICPCRegistration)
 app.use('/get-mockICPCRegistration', getMockICPCRegistration)
+
+app.use('/add-gameOfGeeksRegistration', addGameOfGeeksRegistration)
+app.use('/get-gameOfGeeksRegistration', getGameOfGeeksRegistration)
 // app.use('/add-event1Registration', addEvent11JanRegistration);
 // app.use('/get-event1Registration', getEvent11JanRegistration);
 // app.use("/add-MemefestRegistration", addMemefestRegistrationRouter);
